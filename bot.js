@@ -24,8 +24,8 @@ const start = () => {
                 const fourDeadline = (20 * 60 * 60 * 1000) + (5 * 60 * 1000)
                 const fiveDeadline = (20 * 60 * 60 * 1000) + (7 * 60 * 1000)
                 setTimeout(() => {
-                    bot.sendMessage(chatId, 'Сработал первый таймаут в 19:50')
-                }, (oneDeadline - time))
+                    bot.sendMessage(chatId, `часы: ${hours}, минуты: ${minutes}, общее время(мс): ${time}, время до 20:10: ${oneDeadline - time}`)
+                }, 1)
                 setTimeout(() => {
                     bot.sendMessage(chatId, 'Сработал первый таймаут в 19:55')
                 }, (twoDeadline - time))
