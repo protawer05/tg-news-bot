@@ -18,8 +18,8 @@ const start = () => {
                 const hours = new Date().getHours();
                 const minutes = new Date().getMinutes();
                 const time = (hours * 60 * 60 * 1000) + (minutes * 60 * 1000)
-                const oneDeadline = (19 * 60 * 60 * 1000) + (50 * 60 * 1000)
-                const twoDeadline = (19 * 60 * 60 * 1000) + (55 * 60 * 1000)
+                const oneDeadline = (20 * 60 * 60 * 1000) + (10 * 60 * 1000)
+                const twoDeadline = (20 * 60 * 60 * 1000) + (13 * 60 * 1000)
                 const threeDeadline = (20 * 60 * 60 * 1000) + (0 * 60 * 1000)
                 const fourDeadline = (20 * 60 * 60 * 1000) + (5 * 60 * 1000)
                 const fiveDeadline = (20 * 60 * 60 * 1000) + (7 * 60 * 1000)
@@ -28,16 +28,16 @@ const start = () => {
                 }, (oneDeadline - time))
                 setTimeout(() => {
                     bot.sendMessage(chatId, 'Сработал первый таймаут в 19:55')
-                }, (oneDeadline - time))
+                }, (twoDeadline - time))
                 setTimeout(() => {
                     bot.sendMessage(chatId, 'Сработал первый таймаут в 20:00')
-                }, (oneDeadline - time))
+                }, (threeDeadline - time))
                 setTimeout(() => {
                     bot.sendMessage(chatId, 'Сработал первый таймаут в 20:05')
-                }, (oneDeadline - time))
+                }, (fourDeadline - time))
                 setTimeout(() => {
                     bot.sendMessage(chatId, 'Сработал первый таймаут в 20:07')
-                }, (oneDeadline - time))
+                }, (fiveDeadline - time))
 
                 break;
             default:
