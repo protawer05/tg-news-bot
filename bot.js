@@ -22,7 +22,6 @@ const start = () => {
                 await bot.sendMessage(chatId, `миллисекунд: ${endDate}`)
                 setTimeout(async () => {
                     await bot.sendMessage(chatId, `сейчас ${date} минут, в стерлитамаке.......`)
-                    await bot.sendVideo(chatId, 'blob:https://www.youtube.com/3a4e04f1-cc0c-49f5-b63d-bf8d57add81a')
                 }, endDate)
                 break;
             default:
