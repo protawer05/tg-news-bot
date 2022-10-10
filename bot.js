@@ -15,17 +15,33 @@ const start = () => {
         switch (text) {
             case '/start':
                 await bot.sendMessage(chatId, 'Добро пожаловать в новостной канал города Стерлитамак');
-                await bot.sendPhoto(chatId, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4H1c7vvaILDeycBqDnPJHGlBYWGUCZ9mo7A&usqp=CAU');
-                const date = new Date().getMinutes();
-                const endDate = 1 * 60 * 1000; // date + 1, где 1 это сколько надо прибавить минут
-                setTimeout(() => {bot.sendMessage(chatId, `сейчас ${date} минут, бот отправит сообщение в ${date + 1}`)}, 1)
-                await bot.sendMessage(chatId, `миллисекунд: ${endDate}`)
-                setTimeout(async () => {
-                    await bot.sendMessage(chatId, `сейчас ${date} минут, в стерлитамаке.......`)
-                }, endDate)
+                const hours = new Date().getHours();
+                const minutes = new Date().getMinutes();
+                const time = (hours * 60 * 60 * 1000) + (minutes * 60 * 1000)
+                const oneDeadline = (19 * 60 * 60 * 1000) + (50 * 60 * 1000)
+                const twoDeadline = (19 * 60 * 60 * 1000) + (55 * 60 * 1000)
+                const threeDeadline = (20 * 60 * 60 * 1000) + (0 * 60 * 1000)
+                const fourDeadline = (20 * 60 * 60 * 1000) + (5 * 60 * 1000)
+                const fiveDeadline = (20 * 60 * 60 * 1000) + (7 * 60 * 1000)
+                setTimeout(() => {
+                    bot.sendMessage(chatId, 'Сработал первый таймаут в 19:50')
+                }, (oneDeadline - time))
+                setTimeout(() => {
+                    bot.sendMessage(chatId, 'Сработал первый таймаут в 19:55')
+                }, (oneDeadline - time))
+                setTimeout(() => {
+                    bot.sendMessage(chatId, 'Сработал первый таймаут в 20:00')
+                }, (oneDeadline - time))
+                setTimeout(() => {
+                    bot.sendMessage(chatId, 'Сработал первый таймаут в 20:05')
+                }, (oneDeadline - time))
+                setTimeout(() => {
+                    bot.sendMessage(chatId, 'Сработал первый таймаут в 20:07')
+                }, (oneDeadline - time))
+
                 break;
             default:
-                return bot.sendMessage(chatId, `Данный бот не принимает сообщения"`);
+                return bot.sendMessage(chatId, `Данный новостной канал не принимает сообщения`);
         }
     })
 }
