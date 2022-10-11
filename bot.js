@@ -17,24 +17,24 @@ const start = () => {
                 await bot.sendMessage(chatId, 'Добро пожаловать в новостной канал города Стерлитамак');
                 const hours = new Date().getHours();
                 const minutes = new Date().getMinutes();
-                const time = (hours * 60 * 60 * 1000) + (minutes * 60 * 1000)
-                const oneDeadline = (20 * 60 * 60 * 1000) + (10 * 60 * 1000)
-                const twoDeadline = (20 * 60 * 60 * 1000) + (13 * 60 * 1000)
-                const threeDeadline = (20 * 60 * 60 * 1000) + (0 * 60 * 1000)
+                const time = ((hours + 5) * 60 * 60 * 1000) + (minutes * 60 * 1000)
+                const oneDeadline = (10 * 60 * 60 * 1000) + (40 * 60 * 1000)
+                const twoDeadline = (10 * 60 * 60 * 1000) + (45 * 60 * 1000)
+                const threeDeadline = (10 * 60 * 60 * 1000) + (47 * 60 * 1000)
                 const fourDeadline = (20 * 60 * 60 * 1000) + (5 * 60 * 1000)
                 const fiveDeadline = (20 * 60 * 60 * 1000) + (7 * 60 * 1000)
                 setTimeout(() => {
-                    bot.sendMessage(chatId, `часы: ${hours}, минуты: ${minutes}, общее время(мс): ${time}, время до 20:10: ${oneDeadline - time}`)
+                    bot.sendMessage(chatId, `часы: ${hours}, минуты: ${minutes}, общее время(мс): ${time}, время до 10:40: ${oneDeadline - time}`)
                 }, 1)
                 setTimeout(() => {
-                    bot.sendMessage(chatId, 'Сработал первый таймаут в 19:55')
+                    bot.sendMessage(chatId, 'Сработал первый таймаут в 10:40')
+                }, (oneDeadline - time))
+                setTimeout(() => {
+                    bot.sendMessage(chatId, 'Сработал первый таймаут в 10:45')
                 }, (twoDeadline - time))
                 setTimeout(() => {
-                    bot.sendMessage(chatId, 'Сработал первый таймаут в 20:00')
+                    bot.sendMessage(chatId, 'Сработал первый таймаут в 10:47')
                 }, (threeDeadline - time))
-                setTimeout(() => {
-                    bot.sendMessage(chatId, 'Сработал первый таймаут в 20:05')
-                }, (fourDeadline - time))
                 setTimeout(() => {
                     bot.sendMessage(chatId, 'Сработал первый таймаут в 20:07')
                 }, (fiveDeadline - time))
